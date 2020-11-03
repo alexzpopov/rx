@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5853f5515040dad4b8777d6f72a2618c, type: 3}
   m_Name: GeometryObjectData
   m_EditorClassIdentifier: 
-  ClicksData:
-  - ObjectType: cube
-    MinClicksCount: 1
-    MaxClicksCount: 3
-    Color: {r: 0.9716981, g: 0, b: 0, a: 0}
-  - ObjectType: sphere
-    MinClicksCount: 2
-    MaxClicksCount: 3
-    Color: {r: 1, g: 0, b: 0.7725029, a: 0}
-  - ObjectType: capsule
-    MinClicksCount: 3
-    MaxClicksCount: 4
-    Color: {r: 0.039248828, g: 0.04854422, b: 0.9245283, a: 0}
+  clicksData:
+  - objectType: cube
+    minClicksCount: 5
+    maxClicksCount: 10
+    color: {r: 0.8396226, g: 0.20198467, b: 0.30818915, a: 0}
+  - objectType: s[here
+    minClicksCount: 6
+    maxClicksCount: 10
+    color: {r: 0.16785331, g: 0.32645467, b: 0.8679245, a: 0}
+  - objectType: capsule
+    minClicksCount: 7
+    maxClicksCount: 10
+    color: {r: 0.9433962, g: 0.12904951, b: 0.82883406, a: 0}

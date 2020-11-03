@@ -9,16 +9,13 @@ using System;
 using System.Collections.Generic;
 
 
-public class task1 : MonoBehaviour
+public class TaskRX : MonoBehaviour
 {
-
     private GameData gameData;
     private GeometryObjectData geometryObjectData;
 
-    private itemName items;
+    private ItemName items;
     private TextAsset jsonList;
-    // Start is called before the first frame update
-
 
     IEnumerator AsynLoadData()
     {
@@ -40,14 +37,13 @@ public class task1 : MonoBehaviour
       Observable.FromCoroutine(AsynLoadData),
       Observable.FromCoroutine(AsyncLoadJson)
     ).Subscribe(xs => {
-        items = JsonUtility.FromJson<itemName>((jsonList as TextAsset).text);
-        waitForClick();
+        items = JsonUtility.FromJson<ItemName>((jsonList as TextAsset).text);
+        WaitForClick();
     }).AddTo(this);
 
         
     }
-
-    void waitForClick()
+    void WaitForClick()
     {
         var clickStream = Observable.EveryUpdate()
                 .Where(_ => Input.GetMouseButtonDown(0));
@@ -60,7 +56,6 @@ public class task1 : MonoBehaviour
                 {
                     Transform objectHit = hit.transform;
                     string _tag = objectHit.gameObject.tag;
-                     //Debug.Log(tag);
                     if (_tag.CompareTo("Player") != 0)
                     {
                         CreateFigures();
@@ -87,11 +82,11 @@ public class task1 : MonoBehaviour
                 xs.assetBundle.Unload(false);
 
                 RandomColor randomColor = obj.GetComponent<RandomColor>();
-                randomColor.StartUpdate(gameData.ObservableTime, geometryObjectData.ClicksData[ind].Color, ind);
-                onClickFigure();
+                randomColor.StartUpdate(gameData.observableTime, geometryObjectData.clicksData[ind].color, ind);
+                OnClickFigure();
             });
     }
-    void onClickFigure()
+    void OnClickFigure()
     {
         var clickStream = Observable.EveryUpdate()
                 .Where(_ => Input.GetMouseButtonDown(0));
@@ -110,14 +105,14 @@ public class task1 : MonoBehaviour
                     {
                         RandomColor randomColor = objectHit.gameObject.GetComponent<RandomColor>();
                         int _index = randomColor.myIndex;
-                        ClickColorData itemData = geometryObjectData.ClicksData[_index];
+                        ClickColorData itemData = geometryObjectData.clicksData[_index];
                         randomColor.AddCLick(itemData);
                     }
                 }
             }
             );
     }
-    void makeJson()
+    void MakeJson()
     {
         items.name.Add("cube");
         items.name.Add("sphere");

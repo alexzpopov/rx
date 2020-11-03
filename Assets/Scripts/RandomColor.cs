@@ -19,7 +19,7 @@ public class RandomColor : MonoBehaviour
     public void StartUpdate(int _time, Color _color,int _index)
     {
         myIndex = _index;
-        geometryObjectModel.CubeColor = _color;
+        geometryObjectModel.cubeColor = _color;
        
         mat.color = _color;
 
@@ -34,21 +34,21 @@ public class RandomColor : MonoBehaviour
     }
     public void ChangeColor()
     {
-        geometryObjectModel.ClickCount++;
-        mat.color = geometryObjectModel.CubeColor;
+        geometryObjectModel.clickCount++;
+        mat.color = geometryObjectModel.cubeColor;
     }
     public void AddCLick(ClickColorData itemData)
     {
-        geometryObjectModel.ClickCount++;
+        geometryObjectModel.clickCount++;
  
 
-        if (geometryObjectModel.ClickCount >= itemData.MinClicksCount && geometryObjectModel.ClickCount <= itemData.MaxClicksCount)
+        if (geometryObjectModel.clickCount >= itemData.minClicksCount && geometryObjectModel.clickCount <= itemData.maxClicksCount)
         {
             ChangeColor();
         }
-        if (geometryObjectModel.ClickCount >= itemData.MaxClicksCount)
+        if (geometryObjectModel.clickCount >= itemData.maxClicksCount)
         {
-            geometryObjectModel.ClickCount = 0;
+            geometryObjectModel.clickCount = 0;
         }
     }
 }

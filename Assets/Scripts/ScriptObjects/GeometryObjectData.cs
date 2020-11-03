@@ -5,27 +5,27 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "GeometryObjectData", fileName = "GeometryObjectData")]
 public class GeometryObjectData : ScriptableObject
 {
- public List<ClickColorData> ClicksData=new List<ClickColorData>();
+ public List<ClickColorData> clicksData=new List<ClickColorData>();
 }
 
-//Модель фигуры (GeometryObjectModel):
+//model of (GeometryObjectModel):
 [System.Serializable]
 public class GeometryObjectModel
 {
- public int ClickCount;
- public Color CubeColor;
+ public int clickCount;
+ public Color cubeColor;
 
 }
 [System.Serializable]
 public class ClickColorData
 { 
- public string ObjectType;//тип создаваемого объекта (куб, сфера, капсула)
- public int MinClicksCount;
- public int MaxClicksCount;
- public Color Color;
+ public string objectType;//object type  (cube, sphere, capsule)
+ public int minClicksCount;
+ public int maxClicksCount;
+ public Color color;
 }
 [System.Serializable]
-public class itemName
+public class ItemName
 {
     public List<string> name= new List<string>();
  
